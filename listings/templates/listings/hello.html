@@ -1,15 +1,23 @@
-<html>
-    <head><title>Merchex</title></head>
-    <body>
-        <h1>Hello Django !</h1>
+{% extends 'listings/base.html' %}
 
-        <p>J'ai {{ bands|length }} groupes préférés:</p>
+{% block content %}
 
-        <ul>
-          {% for band in bands %}
-          <li>{{ band.name|upper}}</li>
-          {% endfor %}
+  <h1>HELLO DJANGO !</h1>
 
-        </ul>
-    </body>
-</html>
+  <p>{{ bands|length }} groupes de musique seront en contact:</p>
+
+  <ul>
+  {% for band in bands %}
+    <li>{{ band.name|upper}} ;</li>
+  {% endfor %}
+  </ul>
+
+  <p>Les prochains événements musicaux à venir sont les suivants: </p>
+
+  <ul>
+  {% for listing in listings %}
+    <li>{{ listing.title }}</li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}
